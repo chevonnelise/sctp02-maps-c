@@ -10,9 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const centerPoint = map.getBounds().getCenter();
         const data = await search(centerPoint.lat, centerPoint.lng, searchTerms);
 
-        
-        addMarkersToMap(data, searchLayer);
-
+        addMarkersToMap(data, searchLayer, map);
 
     })
 

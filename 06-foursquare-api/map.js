@@ -40,6 +40,16 @@ function addMarkersToMap(searchResults, layer) {
             // add the marker to the map
             marker.addTo(layer);
 
+            const divElement = document.createElement('div');
+            divElement.innerHTML = location.name;
+
+            divElement.addEventListener("click", function(){
+                const lat = location.geocodes.main.latitude;
+                const lng = location.goecodes.main.longitude;
+                map.flyTo([lat,lng],16);
+            })
+            searchResultOutput.appendChild(divElement);
+
             // repeat until there are no location left in data.results
         }
 }
