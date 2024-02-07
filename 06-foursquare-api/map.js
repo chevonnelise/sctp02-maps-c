@@ -18,7 +18,7 @@ function createMap(mapContainerID, lat, lng) {
  * @param {[*]} searchResults Array of objects from FourSquare
  * @param {*} map Leaflet Map Object
  */
-function addMarkersToMap(searchResults, map) {
+function addMarkersToMap(searchResults, layer) {
      // add markers:
         // Example of how to get lat lng from the FourSquare results: 
         // x.results[0].geocodes.main.latitude = lat
@@ -30,11 +30,12 @@ function addMarkersToMap(searchResults, map) {
             const lat = location.geocodes.main.latitude;
             const lng = location.geocodes.main.longitude;
             const address = location.location.formatted_address;
+            const name = location.name
             const marker = L.marker([lat, lng]);
             marker.bindPopup(`<h1>${address}</h1>`);
 
             // add the marker to the map
-            marker.addTo(map);
+            marker.addTo(layer);
 
             // repeat until there are no location left in data.results
         }
