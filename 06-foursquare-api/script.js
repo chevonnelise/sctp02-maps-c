@@ -11,7 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const data = await search(centerPoint.lat, centerPoint.lng, searchTerms);
 
         addMarkersToMap(data, searchLayer, map);
-
     })
 
+    document.querySelector("#toggleSearchBtn").addEventListener("click", function(){
+        const searchContainer = document.querySelector("#search-container");
+        const style = window.getComputedStyle(searchContainer);
+        if (style.display != "none") {
+            searchContainer.style.display = "none";
+        } else {
+            searchContainer.style.display = 'block';
+        }
+    })
 });

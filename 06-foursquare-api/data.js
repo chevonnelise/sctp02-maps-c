@@ -16,8 +16,4 @@ async function search(lat, lng, searchTerms) {
        }
    })
   return response.data;
-
-   
-
-
 }
